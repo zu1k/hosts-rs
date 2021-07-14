@@ -1,22 +1,18 @@
-use hosts::*;
 use super::res::GITHUB_ASSETS;
+use hosts::*;
 use std::net::IpAddr;
 use trust_dns_resolver::Resolver;
-use trust_dns_resolver::{
-    config::*,
-    error::ResolveError
-};
+use trust_dns_resolver::{config::*, error::ResolveError};
 
 pub struct Client {
-    resolver: Resolver
+    resolver: Resolver,
 }
 
 impl std::default::Default for Client {
     fn default() -> Self {
-        let resolver = Resolver::new(ResolverConfig::cloudflare_https(), ResolverOpts::default()).unwrap();
-        Client {
-            resolver
-        }
+        let resolver =
+            Resolver::new(ResolverConfig::cloudflare_https(), ResolverOpts::default()).unwrap();
+        Client { resolver }
     }
 }
 
@@ -28,19 +24,19 @@ impl Client {
                 let mut fb_ipv6 = None;
                 for item in response {
                     if item.is_ipv4() {
-                        return Ok(Some(item))
+                        return Ok(Some(item));
                     } else if fb_ipv6.is_none() {
                         fb_ipv6 = Some(item);
                     }
                 }
                 Ok(fb_ipv6)
-            },
-            Err(e) => Err(e)
+            }
+            Err(e) => Err(e),
         }
     }
 }
 
-pub fn resolve_github_assets() -> Hosts{
+pub fn resolve_github_assets() -> Hosts {
     let client = Client::default();
     let mut hosts = Hosts::default();
 

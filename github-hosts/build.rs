@@ -10,7 +10,7 @@ fn main() {
     if std::env::var("PROFILE").unwrap() == "release" {
         let mut res = winres::WindowsResource::new();
         res.set_icon("resources//dns.ico")
-           .set_manifest_file("resources//manifest.xml");
+            .set_manifest_file("resources//manifest.xml");
         match res.compile() {
             Err(e) => {
                 write!(std::io::stderr(), "{}", e).unwrap();

@@ -11,7 +11,7 @@ fn main() {
 
         match mod_hosts_file(hosts.to_string()) {
             Ok(_) => println!("Success!"),
-            Err(err) => eprintln!("Error: {}", err)
+            Err(err) => eprintln!("Error: {}", err),
         }
     }
 }

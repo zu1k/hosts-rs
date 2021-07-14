@@ -3,16 +3,16 @@ mod file;
 pub use file::*;
 
 use std::collections::HashMap;
-use std::vec::Vec;
 use std::net::IpAddr;
 use std::str::FromStr;
+use std::vec::Vec;
 
 type HostItem = Vec<String>;
 type HostMap = HashMap<String, HostItem>;
 
 #[derive(Debug, Default)]
 pub struct Hosts {
-    pub data: HostMap
+    pub data: HostMap,
 }
 
 impl Hosts {
@@ -33,29 +33,25 @@ impl From<String> for Hosts {
 
             let mut parts = line.split_whitespace();
             match parts.next() {
-                Some(ip) => {
-                    match IpAddr::from_str(ip) {
-                        Ok(ip) => {
-                            let ip = ip.to_string();
-                            let mut domains = HostItem::new();
-                            while let Some(domain) = parts.next() {
-                                domains.push(domain.into())
-                            }
-                            if domains.len() > 0 {
-                                let origin_domains = result.entry(ip).or_default();
-                                origin_domains.append(&mut domains);
-                            }
-                        },
-                        Err(_) => continue
+                Some(ip) => match IpAddr::from_str(ip) {
+                    Ok(ip) => {
+                        let ip = ip.to_string();
+                        let mut domains = HostItem::new();
+                        while let Some(domain) = parts.next() {
+                            domains.push(domain.into())
+                        }
+                        if domains.len() > 0 {
+                            let origin_domains = result.entry(ip).or_default();
+                            origin_domains.append(&mut domains);
+                        }
                     }
+                    Err(_) => continue,
                 },
-                None => continue
+                None => continue,
             }
-        };
-
-        Hosts {
-            data: result
         }
+
+        Hosts { data: result }
     }
 }
 

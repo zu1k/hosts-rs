@@ -22,16 +22,11 @@ pub fn mod_hosts_file(hosts: String) -> Result<(), std::io::Error> {
 
         let pre: String = txt.chars().take(idx_start).collect();
         let suf: String = txt.chars().skip(idx_end).collect();
-        txt = format!(
-            "{}{}{}",
-            pre,
-            hosts,
-            suf
-        );
+        txt = format!("{}{}{}", pre, hosts, suf);
     } else {
         txt = txt + hosts.as_str();
     }
 
     let mut file = fs::File::create(HOST_FILE_PATH)?;
-    file.write_all( txt.as_bytes())
+    file.write_all(txt.as_bytes())
 }

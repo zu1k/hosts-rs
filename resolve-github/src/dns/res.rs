@@ -1,4 +1,4 @@
-pub const GITHUB_ASSETS: [&str;33] = [
+pub const GITHUB_ASSETS: [&str; 33] = [
     "alive.github.com",
     "live.github.com",
     "github.githubassets.com",
@@ -31,5 +31,5 @@ pub const GITHUB_ASSETS: [&str;33] = [
     "github-production-repository-file-5c1aeb.s3.amazonaws.com",
     "githubstatus.com",
     "github.community",
-    "media.githubusercontent.com"
+    "media.githubusercontent.com",
 ];
