@@ -1,3 +1,7 @@
+mod file;
+
+pub use file::*;
+
 use std::collections::HashMap;
 use std::vec::Vec;
 use std::net::IpAddr;
@@ -6,9 +10,16 @@ use std::str::FromStr;
 type HostItem = Vec<String>;
 type HostMap = HashMap<String, HostItem>;
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct Hosts {
     pub data: HostMap
+}
+
+impl Hosts {
+    pub fn insert(&mut self, domain: String, ip: IpAddr) {
+        let domains = self.data.entry(ip.to_string()).or_default();
+        domains.push(domain);
+    }
 }
 
 impl From<String> for Hosts {

@@ -1,11 +1,9 @@
 #![windows_subsystem = "windows"]
 
 mod req;
-mod parse;
-mod file;
 use req::*;
-use parse::Hosts;
-use file::*;
+
+use hosts::*;
 
 fn main() {
     if let Some(hosts) = fetch() {

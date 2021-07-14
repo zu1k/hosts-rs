@@ -1,0 +1,9 @@
+[package]
+name = "resolve-github"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+hosts = { path = "../" }
+trust-dns-resolver = { version = "0.20", features = ["dns-over-https-rustls"] }
+
