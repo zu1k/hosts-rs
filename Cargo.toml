@@ -1,9 +1,14 @@
 [package]
-name = "hosts"
+name = "github-hosts"
+description = "Modify hosts to speed up GitHub access."
 version = "0.1.0"
+authors = ["zu1k <i@lgf.im>"]
+repository = "https://github.com/zu1k/github-hosts"
+build = "build.rs"
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-reqwest = { version = "0.11", features = ["blocking", "json"] }
+reqwest = { version = "0.11", features = ["blocking"] }
+
+[target.'cfg(target_os="windows")'.build-dependencies]
+winres = "0.1"

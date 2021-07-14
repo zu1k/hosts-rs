@@ -11,8 +11,8 @@ pub struct Hosts {
     pub data: HostMap
 }
 
-impl From<&str> for Hosts {
-    fn from(text: &str) -> Self {
+impl From<String> for Hosts {
+    fn from(text: String) -> Self {
         let mut result = HostMap::new();
 
         for line in text.lines() {
