@@ -1,7 +1,7 @@
 [package]
 name = "github-hosts"
 description = "Modify hosts to speed up GitHub access."
-version = "0.1.0"
+version = "0.1.1"
 authors = ["zu1k <i@lgf.im>"]
 repository = "https://github.com/zu1k/github-hosts"
 build = "build.rs"
