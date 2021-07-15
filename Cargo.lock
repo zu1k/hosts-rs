@@ -191,7 +191,7 @@ dependencies = [
 
 [[package]]
 name = "github-hosts"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "hosts",
  "reqwest",
@@ -740,7 +740,7 @@ dependencies = [
 
 [[package]]
 name = "resolve-github"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "hosts",
  "trust-dns-resolver",
