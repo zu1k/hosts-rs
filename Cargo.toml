@@ -4,6 +4,7 @@ description = ""
 version = "0.1.1"
 authors = ["zu1k <i@lgf.im>"]
 repository = "https://github.com/zu1k/github-hosts"
+license = "MIT"
 edition = "2018"
 
 [dependencies]
