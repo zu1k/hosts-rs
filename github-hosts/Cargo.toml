@@ -1,0 +1,13 @@
+[package]
+name = "github-hosts"
+description = "Modify hosts to speed up GitHub access."
+version = "0.1.1"
+edition = "2018"
+build = "build.rs"
+
+[dependencies]
+hosts = { path = "../" }
+reqwest = { version = "0.11", features = ["blocking"] }
+
+[target.'cfg(target_os="windows")'.build-dependencies]
+winres = "0.1"

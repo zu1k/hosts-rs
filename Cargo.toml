@@ -1,0 +1,16 @@
+[package]
+name = "hosts"
+description = ""
+version = "0.1.1"
+authors = ["zu1k <i@zu1k.com>"]
+repository = "https://github.com/zu1k/github-hosts"
+license = "MIT"
+edition = "2018"
+
+[dependencies]
+
+[workspace]
+members = [
+    "github-hosts",
+    "resolve-github"
+]
